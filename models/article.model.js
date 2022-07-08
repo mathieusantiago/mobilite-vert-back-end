@@ -18,6 +18,9 @@ const articleSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    galleryPicture:{
+      type: Array,
+    },
     chapo:{
       type: String,
     },
