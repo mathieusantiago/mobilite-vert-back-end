@@ -35,6 +35,7 @@ module.exports.createCategorie = async (req, res) => {
     categorie_type: req.body.categorie_type,
     description: req.body.description,
     state: req.body.state,
+    order: req.body.order,
   });
   try {
     const article = await newCategorie.save();
@@ -69,6 +70,29 @@ module.exports.updateCategorie = (req, res) => {
         return res.send(docs);
       } else {
         console.log("❌ 📄 update catégorie errors");
+      }
+    }
+  );
+};
+
+//Controller for update selected Category
+module.exports.updateOrder = (req, res) => {
+  if (!ObjectID.isValid(req.params.id)) {
+    return res.status(400).send(err);
+  }
+  const updatedRecord = {
+    order: req.body.order,
+  };
+  CategorieModel.findByIdAndUpdate(
+    req.params.id,
+    { $set: updatedRecord },
+    { new: true },
+    (err, docs) => {
+      if (!err) {
+        console.log("📩 update order");
+        return res.send(docs);
+      } else {
+        console.log("❌ 📄 update order errors");
       }
     }
   );
