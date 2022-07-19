@@ -10,17 +10,16 @@ const categorieSchema = new mongoose.Schema(
     categorie_type: {
       type: [
         {
-          name_type:String,
+          name_type: String,
           status: Boolean,
           description: String,
-
-        }
+        },
       ],
       required: true,
     },
-    state:{
+    state: {
       type: Boolean,
-      required: true
+      required: true,
     },
     creating_id: {
       type: String,
@@ -28,6 +27,10 @@ const categorieSchema = new mongoose.Schema(
     },
     description: {
       type: String,
+      required: true,
+    },
+    order: {
+      type: Number,
       required: true,
     },
   },
