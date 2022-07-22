@@ -9,7 +9,7 @@ module.exports.readCategorie = (req, res) => {
     } else {
       console.log("❌ errors to get catégorie");
     }
-  }).sort({updatedAt: 'desc'});
+  }).sort({order: 'asc'});
 };
 
 //Controller for get Category by id
@@ -59,6 +59,7 @@ module.exports.updateCategorie = (req, res) => {
     categorie_type: req.body.categorie_type,
     description: req.body.description,
     state: req.body.state,
+    order: req.body.order,
   };
   CategorieModel.findByIdAndUpdate(
     req.params.id,
