@@ -49,7 +49,8 @@ module.exports.createArticle = async (req, res) => {
     tilteSeo: req.body.tilteSeo,
     contentSeo: req.body.contentSeo,
     mainPicture: req.body.mainPicture,
-    galleryPicture : req.body.galleryPicture
+    galleryPicture : req.body.galleryPicture,
+    secondaryPicture: req.body.secondaryPicture,
   });
   try {
     const article = await newArticle.save();

@@ -70,6 +70,9 @@ const articleSchema = new mongoose.Schema(
     editing_id: {
       type: String,
       required: true,
+    },
+    secondaryPicture:{
+      type:String,
     }
   },
   {
