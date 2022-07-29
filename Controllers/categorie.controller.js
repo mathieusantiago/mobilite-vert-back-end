@@ -9,7 +9,7 @@ module.exports.readCategorie = (req, res) => {
     } else {
       console.log("❌ errors to get catégorie");
     }
-  }).sort({order: 'asc'});
+  }).sort({ order: "asc" });
 };
 
 //Controller for get Category by id
@@ -28,7 +28,6 @@ module.exports.getAllCategoryById = (req, res) => {
 
 //Controller for create new Category
 module.exports.createCategorie = async (req, res) => {
-
   const newCategorie = new CategorieModel({
     categorie_name: req.body.categorie_name,
     creating_id: req.body.creating_id,

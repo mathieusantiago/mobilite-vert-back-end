@@ -14,26 +14,26 @@ const articleSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    mainPicture:{
+    mainPicture: {
       type: String,
       required: true,
     },
-    galleryPicture:{
+    galleryPicture: {
       type: Array,
     },
-    chapo:{
+    chapo: {
       type: String,
     },
-    content_article:{
+    content_article: {
       type: String,
     },
-    content_subarticle:{
+    content_subarticle: {
       type: String,
     },
-    tags:{
+    tags: {
       type: String,
     },
-    author:{
+    author: {
       type: String,
     },
     presCategorie: {
@@ -71,9 +71,9 @@ const articleSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    secondaryPicture:{
-      type:String,
-    }
+    secondaryPicture: {
+      type: String,
+    },
   },
   {
     timestamps: true,

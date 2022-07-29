@@ -3,7 +3,7 @@ const UserModel = require("../models/user.model");
 //import dependencies jsonwebtoken
 const jwt = require("jsonwebtoken");
 //import utils for catch errors
-const {signInErrors, signUpErrors} = require("../utils/errors.utils")
+const { signInErrors, signUpErrors } = require("../utils/errors.utils");
 //constance limit the date expired token (3 day)
 const maxAge = 3 * 24 * 60 * 60 * 1000;
 // constance generate key encode for crypt JWToken
@@ -22,7 +22,7 @@ module.exports.signUp = async (req, res) => {
     const user = await UserModel.create({ pseudo, email, password });
     res.status(201).json({ user: user._id });
   } catch (err) {
-    const errors = signUpErrors(err)
+    const errors = signUpErrors(err);
     res.status(200).send({ errors });
   }
 };

@@ -4,7 +4,7 @@ const ObjectID = require("mongoose").Types.ObjectId;
 module.exports.create_sub_categorie = (req, res) => {
   if (!ObjectID.isValid(req.params.id))
     return res.status(400).send("ID unknown : " + req.params.id);
-  console.log(req.body)
+  console.log(req.body);
   try {
     return CategorieModel.findByIdAndUpdate(
       req.params.id,

@@ -21,7 +21,7 @@ module.exports.addGalleryPicture = async (req, res) => {
 };
 
 module.exports.getAllPicture = async (req, res) => {
-  const picture = await GalleryModel.find().sort({updatedAt: 'desc'});
+  const picture = await GalleryModel.find().sort({ updatedAt: "desc" });
   res.status(200).json(picture);
 };
 
