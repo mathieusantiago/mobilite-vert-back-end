@@ -9,7 +9,7 @@ module.exports.readArticle = (req, res) => {
     } else {
       console.log("❌ errors to get article");
     }
-  }).sort({ updatedAt: "desc" });
+  }).sort({updatedAt: 'desc'});
 };
 
 //Controller for get article by id
@@ -49,7 +49,7 @@ module.exports.createArticle = async (req, res) => {
     tilteSeo: req.body.tilteSeo,
     contentSeo: req.body.contentSeo,
     mainPicture: req.body.mainPicture,
-    galleryPicture: req.body.galleryPicture,
+    galleryPicture : req.body.galleryPicture,
     secondaryPicture: req.body.secondaryPicture,
   });
   try {

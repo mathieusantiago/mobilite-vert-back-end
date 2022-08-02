@@ -4,12 +4,17 @@
   "description": "Projet étude afpa",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "docs": "apidoc -i ./ -o doc/",
     "start": "nodemon --watch ."
+  },
+  "apidoc": {
+    "title": "Custom apiDoc browser title",
+    "url" : "https://api.github.com/v1"
   },
   "author": "Mathieu Santiago",
   "license": "ISC",
   "dependencies": {
+    "apidoc": "^0.52.0",
     "bcrypt": "^5.0.1",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
