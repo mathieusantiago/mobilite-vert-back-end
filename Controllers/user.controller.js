@@ -60,7 +60,7 @@ module.exports.getAllUsers = async (req, res) => {
  *      }
  *  @apiError IdUserNotFound The <code>id</code> of the User was not found.
  *  @apiErrorExample {json} Error-Response:
- *   HTTP/1.1 401 
+ *   HTTP/1.1 401
  *   {
  *     "error": "IdUserNotFound"
  *   }
@@ -108,7 +108,7 @@ module.exports.userInfo = (req, res) => {
  *      }
  *  @apiError ParamUserNotFound The <code>id,pseudo,email</code> of the User was not found.
  *  @apiErrorExample {json} Error-Response:
- *   HTTP/1.1 401 
+ *   HTTP/1.1 401
  *   {
  *     "error": "IdUserNotFound",
  *     "error": "LoginUserNotFound",
@@ -127,6 +127,8 @@ module.exports.updateUser = async (req, res) => {
         $set: {
           pseudo: req.body.pseudo,
           email: req.body.email,
+          role: req.body.role,
+          status: req.body.status,
         },
       },
       { new: true, upsert: true, setDefaultsOnInsert: true }
@@ -165,7 +167,7 @@ module.exports.updateUser = async (req, res) => {
  *      }
  *  @apiError IdUserNotFound The <code>id</code> of the User was not found.
  *  @apiErrorExample {json} Error-Response:
- *   HTTP/1.1 401 
+ *   HTTP/1.1 401
  *   {
  *     "error": "IdUserNotFound",
  *   }

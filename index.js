@@ -14,6 +14,7 @@ const categorieRoutes = require("./routes/categorie.routes");
 const subCategorieRoutes = require("./routes/subCategorie.routes");
 const galleryRoutes = require("./routes/gallery.routes");
 const roleRoutes = require("./routes/role.routes");
+const fieldEnergy = require("./routes/fieldEnergy.routes");
 
 //createe cors option
 const corsOptions = {
@@ -43,6 +44,7 @@ app.use("/api/categorie", categorieRoutes);
 app.use("/api/subcategorie", subCategorieRoutes);
 app.use("/api/gallery", galleryRoutes);
 app.use("/api/role", roleRoutes);
+app.use("/api/fieldEnergy", fieldEnergy);
 
 //Server
 app.listen(process.env.PORT, () => {

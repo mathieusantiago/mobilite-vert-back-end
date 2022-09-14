@@ -10,7 +10,6 @@ const userSchema = new mongoose.Schema(
       minLength: 3,
       maxLength: 55,
       unique: true,
-      trim: true,
     },
     email: {
       type: String,
@@ -25,6 +24,14 @@ const userSchema = new mongoose.Schema(
       required: true,
       max: 1024,
       minlength: 6,
+    },
+    role: {
+      type: String,
+      required: true,
+    },
+    status: {
+      type: Boolean,
+      required: true,
     },
   },
   {
