@@ -4,12 +4,16 @@
   "description": "Projet étude afpa",
   "main": "index.js",
   "scripts": {
-    "docs": "apidoc -i ./ -o doc/",
+    "docs": "apidoc -i ./ -o apidoc/",
     "start": "nodemon --watch ."
   },
   "apidoc": {
     "title": "Custom apiDoc browser title",
-    "url" : "https://api.github.com/v1"
+    "url" : "https://api.github.com/v1",
+    "header": {
+      "title": "Introduction",
+      "filename": "header.md"
+    }
   },
   "author": "Mathieu Santiago",
   "license": "ISC",

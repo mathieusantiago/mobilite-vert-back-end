@@ -30,11 +30,9 @@ const articleSchema = new mongoose.Schema(
     content_subarticle: {
       type: String,
     },
-    tags: {
-      type: String,
-    },
+    tags: [String],
     author: {
-      type: String,
+      type: [String],
     },
     presCategorie: {
       type: String,

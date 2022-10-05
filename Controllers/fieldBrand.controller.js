@@ -1,14 +1,15 @@
 //import model user in the controller
-const fieldEnergy = require("../models/fieldEnergy.model");
+const fieldBrand = require("../models/fieldBrand.model");
 //import dependencies jsonwebtoken
 const ObjectID = require("mongoose").Types.ObjectId;
 
+
 /**
- * @api {get} /api/fieldEnergy/  Get all fieldEnergy
- * @apiName getAllFieldEnergy
- * @apiGroup FieldEnergy
- * @apiDescription methode API for get all fieldEnergy
- * @apiSuccess {Object} fieldEnergy Object with all fieldEnergy.
+ * @api {get} /api/fieldBrand/  Get all fieldBrand
+ * @apiName getAllFieldBrand
+ * @apiGroup FieldBrand
+ * @apiDescription methode API for get all fieldBrand
+ * @apiSuccess {Object} fieldBrand Object with all fieldBrand.
  *
  * @apiSuccessExample {json} Success-Response:
  *  HTTP/1.1 200 OK
@@ -39,20 +40,21 @@ const ObjectID = require("mongoose").Types.ObjectId;
  *       "updatedAt": ISODate('2022-09-14T09:13:08.018Z'),
  *       "__v": 0
  *   }
- * @apiSampleRequest http://127.0.0.1:5000/api/fieldEnergy
+ * @apiSampleRequest http://127.0.0.1:5000/api/fieldBrand
  */
-module.exports.getAllFieldEnergy = async (req, res) => {
-  const dataFieldEnergy = await fieldEnergy.find().sort({ updatedAt: "desc" });
-  res.status(200).json(dataFieldEnergy);
+module.exports.getAllFieldBrand = async (req, res) => {
+  const dataFieldBrand = await fieldBrand.find().sort({ updatedAt: "desc" });
+  res.status(200).json(dataFieldBrand);
 };
 
+
 /**
- * @api {get} /api/fieldEnergy/:id  Get fieldEnergy by id
- * @apiName getFieldEnergyById
- * @apiGroup FieldEnergy
- * @apiParam {ObjectId} id  id for FieldEnergy.
- * @apiDescription methode API for get the fieldEnergy by id
- * @apiSuccess {Object} fieldEnergy Object with fieldEnergy.
+ * @api {get} /api/fieldBrand/:id  Get fieldBrand by id
+ * @apiName getFieldBrandById
+ * @apiGroup FieldBrand
+ * @apiParam {ObjectId} id  id for fieldBrand.
+ * @apiDescription methode API for get the fieldBrand by id
+ * @apiSuccess {Object} fieldBrand Object with fieldBrand.
  *
  * @apiSuccessExample {json} Success-Response:
  *  HTTP/1.1 200 OK
@@ -65,13 +67,13 @@ module.exports.getAllFieldEnergy = async (req, res) => {
  *       "updatedAt": ISODate('2022-09-14T09:13:08.018Z'),
  *       "__v": 0
  *   }
- * @apiSampleRequest http://127.0.0.1:5000/api/fieldEnergy/:id
+ * @apiSampleRequest http://127.0.0.1:5000/api/fieldBrand/:id
  */
-module.exports.getFieldEnergyById = (req, res) => {
+module.exports.getFieldBrandById = (req, res) => {
   if (!ObjectID.isValid(req.params.id)) {
     return res.status(404).send("ID unknow : " + req.params.id);
   }
-  fieldEnergy.findById(req.params.id, (err, docs) => {
+  fieldBrand.findById(req.params.id, (err, docs) => {
     if (!err) {
       res.send(docs);
     } else {
@@ -80,15 +82,16 @@ module.exports.getFieldEnergyById = (req, res) => {
   })
 };
 
+
 /**
- * @api {post} /api/fieldEnergy/  Create fieldEnergy
- * @apiName createFieldEnergy
- * @apiGroup FieldEnergy
- * @apiDescription methode API for create the fieldEnergy
- * @apiBody {String} filed_name=test1 filed_name of fieldEnergy.
- * @apiBody {String} content_field=test1 content_field of fieldEnergy.
- * @apiBody {String} chapo_field=test1 chapo_field of fieldEnergy.
- * @apiSuccess {Object} fieldEnergy Object with fieldEnergy created.
+ * @api {post} /api/fieldBrand/  Create fieldBrand
+ * @apiName createFieldBrand
+ * @apiGroup FieldBrand
+ * @apiDescription methode API for create the fieldBrand
+ * @apiBody {String} filed_name=test1 filed_name of fieldBrand.
+ * @apiBody {String} content_field=test1 content_field of fieldBrand.
+ * @apiBody {String} chapo_field=test1 chapo_field of fieldBrand.
+ * @apiSuccess {Object} fieldBrand Object with fieldBrand created.
  *
  * @apiSuccessExample {json} Success-Response:
  *  HTTP/1.1 200 OK
@@ -101,16 +104,16 @@ module.exports.getFieldEnergyById = (req, res) => {
  *       "updatedAt": ISODate('2022-09-14T09:13:08.018Z'),
  *       "__v": 0
  *   }
- * @apiSampleRequest http://127.0.0.1:5000/api/fieldEnergy
+ * @apiSampleRequest http://127.0.0.1:5000/api/fieldBrand
  */
-module.exports.createFieldEnergy = async (req, res) => {
-  const newFieldEnergy = new fieldEnergy({
+module.exports.createFieldBrand = async (req, res) => {
+  const newFieldBrand = new fieldBrand({
     filed_name: req.body.filed_name, //
     content_field: req.body.content_field, //
     chapo_field: req.body.chapo_field, //
   });
   try {
-    const field = await newFieldEnergy.save();
+    const field = await newFieldBrand.save();
     console.log("📄 content field created");
     return res.status(201).json(field);
   } catch (err) {
@@ -120,16 +123,17 @@ module.exports.createFieldEnergy = async (req, res) => {
   }
 };
 
+
 /**
- * @api {put} /api/fieldEnergy/:id  Update fieldEnergy
- * @apiName updateFieldEnergy
- * @apiGroup FieldEnergy
- * @apiDescription methode API for update the fieldEnergy
- * @apiParam {ObjectId} id  id for fieldEnergy.
- * @apiBody {String} filed_name=test1 filed_name of fieldEnergy.
- * @apiBody {String} content_field=test1 content_field of fieldEnergy.
- * @apiBody {String} chapo_field=test1 chapo_field of fieldEnergy.
- * @apiSuccess {Object} fieldEnergy Object with fieldEnergy updated.
+ * @api {put} /api/fieldBrand/:id  Update fieldBrand
+ * @apiName updateFieldBrand
+ * @apiGroup FieldBrand
+ * @apiDescription methode API for update the fieldBrand
+ * @apiParam {ObjectId} id  id for fieldBrand.
+ * @apiBody {String} filed_name=test1 filed_name of fieldBrand.
+ * @apiBody {String} content_field=test1 content_field of fieldBrand.
+ * @apiBody {String} chapo_field=test1 chapo_field of fieldBrand.
+ * @apiSuccess {Object} fieldBrand Object with fieldBrand updated.
  *
  * @apiSuccessExample {json} Success-Response:
  *  HTTP/1.1 200 OK
@@ -142,9 +146,9 @@ module.exports.createFieldEnergy = async (req, res) => {
  *       "updatedAt": ISODate('2022-09-14T09:13:08.018Z'),
  *       "__v": 0
  *   }
- * @apiSampleRequest http://127.0.0.1:5000/api/fieldEnergy/:id
+ * @apiSampleRequest http://127.0.0.1:5000/api/fieldBrand/:id
  */
-module.exports.updateFieldEnergy = (req, res) => {
+module.exports.updateFieldBrand = (req, res) => {
   if (!ObjectID.isValid(req.params.id)) {
     return res.status(400).send(err);
   }
@@ -153,7 +157,7 @@ module.exports.updateFieldEnergy = (req, res) => {
     content_field: req.body.content_field, 
     chapo_field: req.body.chapo_field, 
   };
-  fieldEnergy.findByIdAndUpdate(
+  fieldBrand.findByIdAndUpdate(
     req.params.id,
     { $set: updatedRecord },
     { new: true },
@@ -168,13 +172,14 @@ module.exports.updateFieldEnergy = (req, res) => {
   );
 };
 
+
 /**
- * @api {delete} /api/fieldEnergy/:id  Deleted fieldEnergy
- * @apiName deleteFieldEnergy
- * @apiGroup FieldEnergy
- * @apiDescription methode API for delete the fieldEnergy
- * @apiParam {ObjectId} id  id for fieldEnergy.
- * @apiSuccess {Object} fieldEnergy Object with fieldEnergy deleted.
+ * @api {delete} /api/fieldBrand/:id  Deleted fieldBrand
+ * @apiName deletefieldBrand
+ * @apiGroup FieldBrand
+ * @apiDescription methode API for delete the fieldBrand
+ * @apiParam {ObjectId} id  id for fieldBrand.
+ * @apiSuccess {Object} fieldBrand Object with fieldBrand deleted.
  *
  * @apiSuccessExample {json} Success-Response:
  *  HTTP/1.1 200 OK
@@ -187,14 +192,14 @@ module.exports.updateFieldEnergy = (req, res) => {
  *       "updatedAt": ISODate('2022-09-14T09:13:08.018Z'),
  *       "__v": 0
  *   }
- * @apiSampleRequest http://127.0.0.1:5000/api/fieldEnergy/:id
+ * @apiSampleRequest http://127.0.0.1:5000/api/fieldBrand/:id
  */
-module.exports.deleteFieldEnergy = (req, res) => {
+module.exports.deleteFieldBrand = (req, res) => {
   if (!ObjectID.isValid(req.params.id)) {
     return res.status(400).send("ID unknown : " + req.params.id);
   }
 
-  fieldEnergy.findByIdAndRemove(req.params.id, (err, docs) => {
+  fieldBrand.findByIdAndRemove(req.params.id, (err, docs) => {
     if (!err) {
       console.log("❌ role fieldEnergy");
       res.send(docs);

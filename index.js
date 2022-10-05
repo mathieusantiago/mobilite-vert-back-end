@@ -15,16 +15,20 @@ const subCategorieRoutes = require("./routes/subCategorie.routes");
 const galleryRoutes = require("./routes/gallery.routes");
 const roleRoutes = require("./routes/role.routes");
 const fieldEnergy = require("./routes/fieldEnergy.routes");
+const fieldBrand = require("./routes/fieldBrand.routes");
+const fieldModel = require("./routes/fieldModel.routes");
+const tags = require("./routes/tags.routes.js");
 
 //createe cors option
 const corsOptions = {
-  origin: process.env.CLIENT_URL,
+  origin: [process.env.CLIENT_URL, 'http://127.0.0.1:5500'],
   credentials: true,
   allowedHeaders: ["sessionId", "Content-Type"],
   exposedHeaders: ["sessionId"],
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   preflightContinue: false,
 };
+
 //Use dependencies
 app.use(cors(corsOptions));
 app.use(express.json());
@@ -45,6 +49,9 @@ app.use("/api/subcategorie", subCategorieRoutes);
 app.use("/api/gallery", galleryRoutes);
 app.use("/api/role", roleRoutes);
 app.use("/api/fieldEnergy", fieldEnergy);
+app.use("/api/fieldBrand", fieldBrand);
+app.use("/api/fieldModel", fieldModel);
+app.use("/api/tags", tags);
 
 //Server
 app.listen(process.env.PORT, () => {
