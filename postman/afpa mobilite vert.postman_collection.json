@@ -43,12 +43,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3001/api/article",
+							"raw": "http://localhost:5000/api/article",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "3001",
+							"port": "5000",
 							"path": [
 								"api",
 								"article"
@@ -73,6 +73,27 @@
 								"api",
 								"article",
 								"62ab4237d0df8e0687fe7ba1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "count article",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/article/publishCount",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"article",
+								"publishCount"
 							]
 						}
 					},
@@ -426,6 +447,27 @@
 					"response": []
 				},
 				{
+					"name": "count categorie",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/categorie/isVisibleCount",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"categorie",
+								"isVisibleCount"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "update categorie by id",
 					"request": {
 						"method": "PUT",
@@ -600,9 +642,37 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "ds",
+							"raw": "http://localhost:5000/api/gallery/count",
+							"protocol": "http",
 							"host": [
-								"ds"
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"gallery",
+								"count"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "count gallery",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/gallery/count",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"gallery",
+								"count"
 							]
 						}
 					},
@@ -678,6 +748,27 @@
 							"path": [
 								"api",
 								"fieldEnergy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "count fieldEnergy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/fieldEnergy/count",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"fieldEnergy",
+								"count"
 							]
 						}
 					},
@@ -816,6 +907,27 @@
 							"path": [
 								"api",
 								"fieldBrand"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "count fieldBrand",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/fieldBrand/count",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"fieldBrand",
+								"count"
 							]
 						}
 					},
@@ -969,6 +1081,27 @@
 					"response": []
 				},
 				{
+					"name": "count fieldModel",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/fieldModel/count",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"fieldModel",
+								"count"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "update fieldModel",
 					"request": {
 						"method": "PUT",
@@ -1048,6 +1181,27 @@
 							"path": [
 								"api",
 								"tags"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "count tags",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/tags/count",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"tags",
+								"count"
 							]
 						}
 					},
@@ -1149,6 +1303,52 @@
 								"api",
 								"tags",
 								"6321d043547003f16f9d1899"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Role",
+			"item": [
+				{
+					"name": "get role",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/role",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"role"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Count role",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/role/count",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"role",
+								"count"
 							]
 						}
 					},
