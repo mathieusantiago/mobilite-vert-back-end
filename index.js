@@ -21,7 +21,7 @@ const tags = require("./routes/tags.routes.js");
 
 //createe cors option
 const corsOptions = {
-  origin: [process.env.CLIENT_URL, 'http://127.0.0.1:5500'],
+  origin: [process.env.CLIENT_URL, process.env.DOCS_URL, process.env.BACKOFFICE_URL],
   credentials: true,
   allowedHeaders: ["sessionId", "Content-Type"],
   exposedHeaders: ["sessionId"],
@@ -57,3 +57,5 @@ app.use("/api/tags", tags);
 app.listen(process.env.PORT, () => {
   console.log(`🎯 Server running on port ${process.env.PORT}`);
 });
+
+module.exports = app;

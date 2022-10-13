@@ -208,3 +208,22 @@ module.exports.deleteFieldBrand = (req, res) => {
     }
   });
 };
+
+/**
+ * @api {get} /api/fieldBrand/count  Get counter fieldBrand
+ * @apiName fieldBrandCount
+ * @apiGroup FieldBrand
+ * @apiDescription methode API for get counter fieldBrand
+ * @apiSuccess {Object} fieldBrand Object with counter fieldBrand.
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *  HTTP/1.1 200 OK
+ *   fieldBrandCounter: 4
+ * @apiSampleRequest http://127.0.0.1:5000/api/fieldBrand
+ */
+ module.exports.fieldBrandCount = (req, res) => {
+  fieldBrand.count()
+  .then((e)=>{
+    res.send({count: e});
+  })
+};

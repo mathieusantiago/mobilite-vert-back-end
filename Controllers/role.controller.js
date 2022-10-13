@@ -203,3 +203,22 @@ module.exports.deleteRole = (req, res) => {
     }
   });
 };
+
+/**
+ * @api {get} /api/role/count  Get counter role
+ * @apiName roleCount
+ * @apiGroup Role
+ * @apiDescription methode API for get counter role
+ * @apiSuccess {Object} role Object with counter role.
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *  HTTP/1.1 200 OK
+ *   roleCounter: 4
+ * @apiSampleRequest http://127.0.0.1:5000/api/role
+ */
+ module.exports.roleCount = (req, res) => {
+  RoleModel.count()
+  .then((e)=>{
+    res.send({count: e});
+  })
+};

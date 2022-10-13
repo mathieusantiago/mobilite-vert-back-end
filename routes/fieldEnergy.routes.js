@@ -3,6 +3,7 @@ const fieldEnergy = require("../Controllers/fieldEnergy.controller");
 
 //Article if router is /article
 router.get("/", fieldEnergy.getAllFieldEnergy);
+router.get("/count", fieldEnergy.fieldEnergyCount);
 router.get("/:id", fieldEnergy.getFieldEnergyById);
 router.post("/", fieldEnergy.createFieldEnergy);
 router.delete("/:id", fieldEnergy.deleteFieldEnergy);

@@ -204,3 +204,23 @@ module.exports.deleteFieldModel = (req, res) => {
     }
   });
 };
+
+
+/**
+ * @api {get} /api/fieldModel/count  Get counter fieldModel
+ * @apiName fieldModelCount
+ * @apiGroup Fieldmodel
+ * @apiDescription methode API for get counter fieldModel
+ * @apiSuccess {Object} fieldModel Object with counter fieldModel.
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *  HTTP/1.1 200 OK
+ *   fieldModelCounter: 4
+ * @apiSampleRequest http://127.0.0.1:5000/api/fieldModel
+ */
+ module.exports.fieldModelCount = (req, res) => {
+  fieldModel.count()
+  .then((e)=>{
+    res.send({count: e});
+  })
+};

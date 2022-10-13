@@ -200,3 +200,23 @@ module.exports.deleteDataTags = (req, res) => {
     }
   });
 };
+
+
+/**
+ * @api {get} /api/tags/count  Get counter tags
+ * @apiName TagsCount
+ * @apiGroup Tags
+ * @apiDescription methode API for get counter tags
+ * @apiSuccess {Object} tags Object with counter tags.
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *  HTTP/1.1 200 OK
+ *   tagsCounter: 4
+ * @apiSampleRequest http://127.0.0.1:5000/api/tags
+ */
+ module.exports.tagsCount = (req, res) => {
+  tagsModel.count()
+  .then((e)=>{
+    res.send({count: e});
+  })
+};

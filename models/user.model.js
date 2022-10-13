@@ -27,11 +27,9 @@ const userSchema = new mongoose.Schema(
     },
     role: {
       type: String,
-      required: true,
     },
     status: {
       type: Boolean,
-      required: true,
     },
   },
   {
@@ -39,12 +37,13 @@ const userSchema = new mongoose.Schema(
   }
 );
 
-userSchema.pre("save", async function (next) {
+userSchema.pre("save", async(next) =>{
   const salt = await bcrypt.genSalt();
   this.password = await bcrypt.hash(this.password, salt);
   next();
 });
 
+//eslint-disable-next-line
 userSchema.statics.login = async function (email, password) {
   const user = await this.findOne({ email });
   if (user) {

@@ -494,3 +494,53 @@ module.exports.deleteArticle = (req, res) => {
     }
   });
 };
+
+
+/**
+ * @api {get} /api/article/  Get counter article
+ * @apiName articleCount
+ * @apiGroup Article
+ * @apiDescription methode API for get counter article
+ * @apiSuccess {Object} article Object with counter article.
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *  HTTP/1.1 200 OK
+ *   articleCounter: 4
+ * @apiSampleRequest http://127.0.0.1:5000/api/article
+ */
+module.exports.articleCount = (req, res) => {
+  ArticleModel.count()
+  .then((e)=>{
+    res.send({count: e});
+  })
+};
+
+
+/**
+ * @api {get} /api/article/  Get counter article is pubilsh or draft
+ * @apiName articlePublishCount
+ * @apiGroup Article
+ * @apiDescription methode API for get counter article is pubilsh or draft
+ * @apiSuccess {Object} article Object with counter article is pubilsh or draft.
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *  HTTP/1.1 200 OK
+ *  {
+ *    pubilsharticleCounter: 4
+ *    draftarticleCounter: 4
+ * }
+ * @apiSampleRequest http://127.0.0.1:5000/api/article
+ */
+module.exports.articlePublishCount = (req, res) => {
+  ArticleModel.find((err, docs) => {
+    if (!err) {
+      let articleCount = {
+        publishCount: docs.filter((e)=>{return e.status === "Publish"}).length,
+        draftCount: docs.filter((e)=>{return e.status === "Draft"}).length
+      }
+      res.send(articleCount);
+    } else {
+      console.log("❌ errors to get article");
+    }
+  });
+};

@@ -3,6 +3,7 @@ const fieldBrand = require("../Controllers/fieldBrand.controller");
 
 //Article if router is /article
 router.get("/", fieldBrand.getAllFieldBrand);
+router.get("/count", fieldBrand.fieldBrandCount);
 router.get("/:id", fieldBrand.getFieldBrandById);
 router.post("/", fieldBrand.createFieldBrand);
 router.delete("/:id", fieldBrand.deleteFieldBrand);

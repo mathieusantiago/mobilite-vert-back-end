@@ -3,6 +3,7 @@ const fieldModel = require("../Controllers/fieldModel.controller");
 
 //Article if router is /article
 router.get("/", fieldModel.getAllFieldModel);
+router.get("/count", fieldModel.fieldModelCount);
 router.get("/:id", fieldModel.getFieldModelById);
 router.post("/", fieldModel.createFieldModel);
 router.delete("/:id", fieldModel.deleteFieldModel);

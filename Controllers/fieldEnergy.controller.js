@@ -203,3 +203,22 @@ module.exports.deleteFieldEnergy = (req, res) => {
     }
   });
 };
+
+/**
+ * @api {get} /api/fieldEnergy/count  Get counter fieldEnergy
+ * @apiName fieldEnergyCount
+ * @apiGroup FieldEnergy
+ * @apiDescription methode API for get counter fieldEnergy
+ * @apiSuccess {Object} fieldEnergy Object with counter fieldEnergy.
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *  HTTP/1.1 200 OK
+ *   fieldEnergyCounter: 4
+ * @apiSampleRequest http://127.0.0.1:5000/api/fieldEnergy
+ */
+ module.exports.fieldEnergyCount = (req, res) => {
+  fieldEnergy.count()
+  .then((e)=>{
+    res.send({count: e});
+  })
+};

@@ -80,6 +80,7 @@ module.exports.signIn = async (req, res) => {
  * @apiSampleRequest http://127.0.0.1:5000/api/user/login
  */
 module.exports.logout = (req, res) => {
+  console.log('❌ user logout')
   res.cookie("jwt", "", { maxAge: 1 });
-  res.redirect("/");
+  res.send('user logout')
 };

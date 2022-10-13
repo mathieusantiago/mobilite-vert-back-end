@@ -1,0 +1,33 @@
+{
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es6": true
+    },
+    "extends": [
+        "plugin:node/recommended"
+    ],
+    "overrides": [],
+    "parserOptions": {
+        "ecmaVersion": "latest"
+    },
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+        // Ici vous définissez vos règles de syntaxe
+        // Retrouvez les règles sur la documentation d'ESLint
+        "no-unused-vars": "warn",
+        "no-console": "off",
+        "func-names": "warn",
+        "no-process-exit": "off",
+        "object-shorthand": "off",
+        "class-methods-use-this": "off"
+
+    },
+    "settings": {
+        "node": {
+            "version": "detect"
+        }
+    }
+}

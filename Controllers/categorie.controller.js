@@ -293,3 +293,22 @@ module.exports.deleteCategorie = (req, res) => {
     }
   });
 };
+
+/**
+ * @api {get} /api/categorie/count  Get counter categorie
+ * @apiName categorieCount
+ * @apiGroup Categorie
+ * @apiDescription methode API for get counter categorie
+ * @apiSuccess {Object} categorie Object with counter categorie.
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *  HTTP/1.1 200 OK
+ *   categorieCounter: 4
+ * @apiSampleRequest http://127.0.0.1:5000/api/categorie
+ */
+  module.exports.categorieCount = (req, res) => {
+  CategorieModel.count()
+  .then((e)=>{
+    res.send({count: e});
+  })
+};

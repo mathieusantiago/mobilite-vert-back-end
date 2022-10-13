@@ -123,3 +123,23 @@ module.exports.deletePicture = (req, res) => {
     }
   });
 };
+
+
+/**
+ * @api {get} /api/gallery/count  Get counter gallery
+ * @apiName galleryCount
+ * @apiGroup Gallery
+ * @apiDescription methode API for get counter gallery
+ * @apiSuccess {Object} gallery Object with counter gallery.
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *  HTTP/1.1 200 OK
+ *   galleryCounter: 4
+ * @apiSampleRequest http://127.0.0.1:5000/api/gallery
+ */
+ module.exports.galleryCount = (req, res) => {
+  GalleryModel.count()
+  .then((e)=>{
+    res.send({count: e});
+  })
+};
