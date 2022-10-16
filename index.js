@@ -6,7 +6,6 @@ const cors = require("cors");
 const app = express();
 const cookieParser = require("cookie-parser");
 const { checkUser, requireAuth } = require("./middleware/auth.middleware");
-
 //import routes
 const userRoutes = require("./routes/user.routes");
 const articleRoutes = require("./routes/article.routes");
@@ -18,10 +17,11 @@ const fieldEnergy = require("./routes/fieldEnergy.routes");
 const fieldBrand = require("./routes/fieldBrand.routes");
 const fieldModel = require("./routes/fieldModel.routes");
 const tags = require("./routes/tags.routes.js");
+const gAnalytics = require("./routes/gAnalytics.routes.js");
 
 //createe cors option
 const corsOptions = {
-  origin: [process.env.CLIENT_URL, process.env.DOCS_URL, process.env.BACKOFFICE_URL],
+  origin:[process.env.CLIENT_URL, process.env.DOCS_URL, process.env.BACKOFFICE_URL],
   credentials: true,
   allowedHeaders: ["sessionId", "Content-Type"],
   exposedHeaders: ["sessionId"],
@@ -41,7 +41,12 @@ app.get("/jwtid", requireAuth, (req, res) => {
   res.status(200).send(res.locals.user._id);
 });
 
+// mertic google analytics users sessions pageviews totalevents visitors pageviewsPerSession
+
+
+
 // Routes
+app.use('/api/analytics', gAnalytics);
 app.use("/api/user", userRoutes);
 app.use("/api/article", articleRoutes);
 app.use("/api/categorie", categorieRoutes);
