@@ -100,6 +100,7 @@ module.exports.getFieldBrandById = (req, res) => {
  *       "filed_name": 'test1',
  *       "chapo_field": 'test1',
  *       "content_field": 'test1',
+ *       "brandFlag": 'https://urlimage.com
  *       "createdAt": ISODate('2022-09-14T09:13:08.018Z'),
  *       "updatedAt": ISODate('2022-09-14T09:13:08.018Z'),
  *       "__v": 0
@@ -111,6 +112,7 @@ module.exports.createFieldBrand = async (req, res) => {
     filed_name: req.body.filed_name, //
     content_field: req.body.content_field, //
     chapo_field: req.body.chapo_field, //
+    brandFlag: req.body.brandFlag
   });
   try {
     const field = await newFieldBrand.save();
@@ -142,6 +144,7 @@ module.exports.createFieldBrand = async (req, res) => {
  *       "filed_name": 'test1',
  *       "chapo_field": 'test1',
  *       "content_field": 'test1',
+ *       "brandFlag": 'https://urlimage.com
  *       "createdAt": ISODate('2022-09-14T09:13:08.018Z'),
  *       "updatedAt": ISODate('2022-09-14T09:13:08.018Z'),
  *       "__v": 0
@@ -156,6 +159,7 @@ module.exports.updateFieldBrand = (req, res) => {
     filed_name: req.body.filed_name, 
     content_field: req.body.content_field, 
     chapo_field: req.body.chapo_field, 
+    brandFlag: req.body.brandFlag
   };
   fieldBrand.findByIdAndUpdate(
     req.params.id,

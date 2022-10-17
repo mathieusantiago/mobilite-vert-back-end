@@ -12,6 +12,9 @@ const fiedBrandSchema = new mongoose.Schema(
     content_field: {
       type: String,
     },
+    brandFlag: {
+      type: String,
+    }
   },
   {
     timestamps: true,
