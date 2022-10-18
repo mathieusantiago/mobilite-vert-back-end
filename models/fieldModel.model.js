@@ -12,6 +12,16 @@ const fiedModelSchema = new mongoose.Schema(
     content_field: {
       type: String,
     },
+    model: {
+      type: String,
+      required: true,
+
+    },
+    imgCar: {
+      type: String,
+      required: true,
+
+    },
   },
   {
     timestamps: true,

@@ -109,6 +109,9 @@ module.exports.createFieldModel = async (req, res) => {
     filed_name: req.body.filed_name, //
     content_field: req.body.content_field, //
     chapo_field: req.body.chapo_field, //
+    model: req.body.model,
+    imgCar: req.body.imgCar
+
   });
   try {
     const field = await newFieldModel.save();
@@ -153,6 +156,8 @@ module.exports.updateFieldModel = (req, res) => {
     filed_name: req.body.filed_name, 
     content_field: req.body.content_field, 
     chapo_field: req.body.chapo_field, 
+    model: req.body.model,
+    imgCar: req.body.imgCar
   };
   fieldModel.findByIdAndUpdate(
     req.params.id,

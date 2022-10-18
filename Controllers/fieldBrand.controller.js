@@ -112,7 +112,8 @@ module.exports.createFieldBrand = async (req, res) => {
     filed_name: req.body.filed_name, //
     content_field: req.body.content_field, //
     chapo_field: req.body.chapo_field, //
-    brandFlag: req.body.brandFlag
+    brandFlag: req.body.brandFlag,
+    model: req.body.model
   });
   try {
     const field = await newFieldBrand.save();
@@ -159,7 +160,8 @@ module.exports.updateFieldBrand = (req, res) => {
     filed_name: req.body.filed_name, 
     content_field: req.body.content_field, 
     chapo_field: req.body.chapo_field, 
-    brandFlag: req.body.brandFlag
+    brandFlag: req.body.brandFlag,
+    model: req.body.model
   };
   fieldBrand.findByIdAndUpdate(
     req.params.id,

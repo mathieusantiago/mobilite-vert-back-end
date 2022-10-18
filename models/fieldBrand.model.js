@@ -14,7 +14,10 @@ const fiedBrandSchema = new mongoose.Schema(
     },
     brandFlag: {
       type: String,
-    }
+    },
+    model: {
+      type: [],
+    },
   },
   {
     timestamps: true,
