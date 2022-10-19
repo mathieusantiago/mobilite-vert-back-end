@@ -5,12 +5,10 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "start": "react-scripts start",
-    "start-all-interfaces": "HOST=0.0.0.0 react-scripts start",
+    "start": "node app.js",
     "test": "npm run test:mocha && npm run test:eslint",
     "test:mocha": "mocha --timeout 10000 --reporter=spec --recursive ./test/",
     "test:eslint": "eslint .",
-    "eject": "react-scripts eject",
     "docs": "apidoc -i ./ -o ../apidoc/docs"
   },
   "apidoc": {
