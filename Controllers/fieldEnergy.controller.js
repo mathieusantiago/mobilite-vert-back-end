@@ -108,6 +108,7 @@ module.exports.createFieldEnergy = async (req, res) => {
     filed_name: req.body.filed_name, //
     content_field: req.body.content_field, //
     chapo_field: req.body.chapo_field, //
+    model: req.body.model 
   });
   try {
     const field = await newFieldEnergy.save();
@@ -151,7 +152,8 @@ module.exports.updateFieldEnergy = (req, res) => {
   const updatedRecord = {
     filed_name: req.body.filed_name, 
     content_field: req.body.content_field, 
-    chapo_field: req.body.chapo_field, 
+    chapo_field: req.body.chapo_field,
+    model: req.body.model 
   };
   fieldEnergy.findByIdAndUpdate(
     req.params.id,

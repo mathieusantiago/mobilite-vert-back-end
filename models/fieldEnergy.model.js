@@ -12,6 +12,9 @@ const fiedEnergySchema = new mongoose.Schema(
     content_field: {
       type: String,
     },
+    model: {
+      type: [],
+    },
   },
   {
     timestamps: true,
