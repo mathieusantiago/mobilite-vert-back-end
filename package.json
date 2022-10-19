@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "docs": "apidoc -i ./ -o ../apidoc/docs",
-    "start": "node  index.js",
+    "start": "node index.js",
     "test": "npm run test:mocha && npm run test:eslint",
     "test:mocha": "mocha --timeout 10000 --reporter=spec --recursive ./test/",
     "test:eslint": "eslint ."
