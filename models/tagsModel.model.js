@@ -7,7 +7,7 @@ const tagsSchema = new mongoose.Schema(
       required: true,
     },
     link_field: {
-      type: String,
+      type: [],
       required: true,
     },
     status_tags: {

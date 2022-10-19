@@ -2,13 +2,16 @@
   "name": "mobilite-verte-server",
   "version": "1.0.0",
   "description": "Projet étude afpa",
+  "private": true,
   "main": "index.js",
   "scripts": {
-    "docs": "apidoc -i ./ -o ../apidoc/docs",
-    "start": "node index.js",
+    "start": "react-scripts start",
+    "start-all-interfaces": "HOST=0.0.0.0 react-scripts start",
     "test": "npm run test:mocha && npm run test:eslint",
     "test:mocha": "mocha --timeout 10000 --reporter=spec --recursive ./test/",
-    "test:eslint": "eslint ."
+    "test:eslint": "eslint .",
+    "eject": "react-scripts eject",
+    "docs": "apidoc -i ./ -o ../apidoc/docs"
   },
   "apidoc": {
     "title": "Custom apiDoc browser title",
