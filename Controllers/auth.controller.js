@@ -64,7 +64,7 @@ module.exports.signIn = async (req, res) => {
   try {
     const user = await UserModel.login(email, password);
     const token = createToken(user._id);
-    res.cookie("jwt", token, { sameSite : "none",secure: true, domain: "https://magical-halva-213b5e.netlify.app/", httpOnly: true,  maxAge });
+    res.cookie("jwt", token, { httpOnly: true, maxAge });
     res.status(200).json({ user: user._id });
   } catch (err) {
     const errors = signInErrors(err);
