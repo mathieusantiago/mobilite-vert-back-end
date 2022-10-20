@@ -23,8 +23,6 @@ const gAnalytics = require("./routes/gAnalytics.routes.js");
 const corsOptions = {
   origin:['*', process.env.CLIENT_URL, process.env.DOCS_URL, process.env.BACKOFFICE_URL],
   credentials: true,
-  allowedHeaders: ["sessionId", "Content-Type"],
-  exposedHeaders: ["sessionId"],
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   preflightContinue: false,
 };
