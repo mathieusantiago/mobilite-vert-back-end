@@ -21,12 +21,17 @@ const gAnalytics = require("./routes/gAnalytics.routes.js");
 
 //createe cors option
 const corsOptions = {
-  origin:['*', process.env.CLIENT_URL, process.env.DOCS_URL, process.env.BACKOFFICE_URL],
+  origin:[process.env.CLIENT_URL, process.env.DOCS_URL, process.env.BACKOFFICE_URL],
   credentials: true,
+  allowedHeaders: ["sessionId", "Content-Type"],
+  exposedHeaders: ["sessionId"],
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   preflightContinue: false,
 };
-
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
+});
 //Use dependencies
 app.use(cors(corsOptions));
 app.use(express.json());
