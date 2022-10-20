@@ -2,7 +2,6 @@
   "name": "mobilite-verte-server",
   "version": "1.0.0",
   "description": "Projet étude afpa",
-  "private": true,
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
