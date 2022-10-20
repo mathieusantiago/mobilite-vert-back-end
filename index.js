@@ -1,5 +1,6 @@
 //import dependencies
 const express = require("express");
+const session = require("express-session");
 require("dotenv").config();
 require("./config/db");
 const cors = require("cors");
@@ -23,23 +24,37 @@ const gAnalytics = require("./routes/gAnalytics.routes.js");
 const corsOptions = {
   origin:[process.env.CLIENT_URL, process.env.DOCS_URL, process.env.BACKOFFICE_URL],
   credentials: true,
-  allowedHeaders: ["sessionId", "Content-Type","Origin", "X-Requested-With", "Accept", "Cache-Control", "Authorisation"],
+  allowedHeaders: ["sessionId", "Content-Type"],
   exposedHeaders: ["sessionId"],
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   preflightContinue: false,
 };
 
 //Use dependencies
+apps.set("trust proxy", 1)
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-
+app.use(session({
+  secret: 'session',
+  resave: false,
+  saveUninitialized: false,
+  // proxy: true,
+  cookie: {
+      maxAge:1000*60*60, 
+      sameSite:'none',
+      secure:false
+  }
+}));
 //Route jwt
 app.get("*", checkUser);
 app.get("/jwtid", requireAuth, (req, res) => {
   res.status(200).send(res.locals.user._id);
 });
+
+// mertic google analytics users sessions pageviews totalevents visitors pageviewsPerSession
+
 
 
 // Routes
