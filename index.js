@@ -23,7 +23,7 @@ const gAnalytics = require("./routes/gAnalytics.routes.js");
 const corsOptions = {
   origin:[process.env.CLIENT_URL, process.env.DOCS_URL, process.env.BACKOFFICE_URL],
   credentials: true,
-  allowedHeaders: ["sessionId", "Content-Type"],
+  allowedHeaders: ["sessionId", "Content-Type","Origin", "X-Requested-With", "Accept", "Cache-Control", "Authorisation"],
   exposedHeaders: ["sessionId"],
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   preflightContinue: false,
@@ -40,9 +40,6 @@ app.get("*", checkUser);
 app.get("/jwtid", requireAuth, (req, res) => {
   res.status(200).send(res.locals.user._id);
 });
-
-// mertic google analytics users sessions pageviews totalevents visitors pageviewsPerSession
-
 
 
 // Routes
