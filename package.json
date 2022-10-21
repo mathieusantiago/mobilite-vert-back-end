@@ -32,6 +32,7 @@
     "express-session": "^1.17.3",
     "googleapis": "^108.0.0",
     "jsonwebtoken": "^8.5.1",
+    "memorystore": "^1.6.7",
     "mocha": "^10.0.0",
     "mongoose": "^6.3.8",
     "nodemon": "^2.0.16",
@@ -43,6 +44,7 @@
   },
   "devDependencies": {
     "@types/chai": "^4.3.3",
+    "@types/express-session": "^1.17.5",
     "@types/supertest": "^2.0.12",
     "eslint": "^8.24.0",
     "eslint-plugin-node": "^11.1.0",

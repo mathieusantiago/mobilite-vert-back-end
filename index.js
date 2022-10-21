@@ -1,6 +1,7 @@
 //import dependencies
 const express = require("express");
 const session = require('express-session');
+const MemoryStore = require('memorystore')(session)
 require("dotenv").config();
 require("./config/db");
 const cors = require("cors");
@@ -32,13 +33,18 @@ const corsOptions = {
 
 //create session express 
 app.use(session({
-  secret: 'yoursecret',
+  store: new MemoryStore({
+    checkPeriod: 86400000 // prune expired entries every 24h
+  }),
+  resave: false,
+  secret: 'keyboard cat',
   cookie: {
       path: '/',
       domain: 'onrender.com',
       maxAge: 1000 * 60 * 24 // 24 hours
   }
 }));
+
 app.use((req, res, next) =>{
   res.header('Access-Control-Allow-Credentials', true);
   res.header('Access-Control-Allow-Origin', req.headers.origin);
