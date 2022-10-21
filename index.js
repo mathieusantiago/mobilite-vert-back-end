@@ -45,6 +45,7 @@ app.use(session({
       maxAge: 1000 * 60 * 24 // 24 hours
   }
 }));
+
 app.use((req,res,next)=>{
   if(!req.session){
       return next(new Error('Oh no')) //handle error
@@ -59,6 +60,7 @@ app.use((req, res, next)=> {
   res.header('Access-Control-Allow-Headers', 'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept');
   next();
 });
+
 //Route jwt
 app.get("*", checkUser);
 app.get("/jwtid", requireAuth, (req, res) => {
