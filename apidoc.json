@@ -1,7 +1,12 @@
 {
-    "name": "example",
+    "name": "Projet mobilité verte",
     "version": "0.1.0",
-    "description": "apiDoc basic example",
-    "title": "Custom apiDoc browser title",
-    "url" : "http://127.0.0.1:5000"
-  }
+    "description": "Voici la documentation technique pour le projet Mobilité verte. Dans cette documentation, vous retrouverez toutes les informations concernant les contrôler de l'API pour le projet Mobilité verte, vous avez également la possibilité de tester les requêtes directement dans la documentation. Bonne lecture,",
+    "title": "Projet mobilité verte",
+    "url" : "http://127.0.0.1:5000",
+    "sampleUrl": "http://127.0.0.1:5000",
+    "template": {
+    "withCompare": true,
+    "withGenerator": true
+    }
+}

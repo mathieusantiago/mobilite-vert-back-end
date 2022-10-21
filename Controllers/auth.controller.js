@@ -14,12 +14,28 @@ const createToken = (id) => {
   });
 };
 
-// Controller for the register user
+
+/**
+ * @api {post} /api/user/login  Register new user 
+ * @apiName signUp
+ * @apiGroup Autantification
+ * @apiDescription methode API for Register a new user
+ * @apiSuccess {Object} Object with user id.
+ * @apiBody {String} pseudo=mathieu  Pseudo of users.
+ * @apiBody {String} email=mathieu@gmail.com  Email of users.
+ * @apiBody {String} password=mathieu  Password unique of Users.
+ * @apiSuccessExample {json} Success-Response:
+ *  HTTP/1.1 200 OK
+ *   {
+ *       "user": "63060fe60a9cbcf6f9baeeff"
+ *   }
+ * @apiSampleRequest http://127.0.0.1:5000/api/user/login
+ */
 module.exports.signUp = async (req, res) => {
-  const { pseudo, email, password } = req.body;
+  const { pseudo, email, password, role, status } = req.body;
 
   try {
-    const user = await UserModel.create({ pseudo, email, password });
+    const user = await UserModel.create({ pseudo, email, password, role, status });
     res.status(201).json({ user: user._id });
   } catch (err) {
     const errors = signUpErrors(err);
@@ -27,14 +43,28 @@ module.exports.signUp = async (req, res) => {
   }
 };
 
-// Controller for the login user
+/**
+ * @api {post} /api/user/login  Login user 
+ * @apiName signIn
+ * @apiGroup Autantification
+ * @apiDescription methode API for login  user
+ * @apiSuccess {Object} Object with user id.
+ * @apiBody {String} email=mathieu@gmail.com email Email of users.
+ * @apiBody {String} password=mathieu password Password unique of Users.
+ * @apiSuccessExample {json} Success-Response:
+ *  HTTP/1.1 200 OK
+ *   {
+ *       "user": "63060fe60a9cbcf6f9baeeff"
+ *   }
+ * @apiSampleRequest http://127.0.0.1:5000/api/user/login
+ */
 module.exports.signIn = async (req, res) => {
   const { email, password } = req.body;
 
   try {
     const user = await UserModel.login(email, password);
     const token = createToken(user._id);
-    res.cookie("jwt", token, { httpOnly: true, maxAge });
+    res.cookie("jwt", token, {domain: "node-script.onrender.com", sameSite: "none", http0nly: false, maxAge : maxAge, secure: true});
     res.status(200).json({ user: user._id });
   } catch (err) {
     const errors = signInErrors(err);
@@ -42,8 +72,15 @@ module.exports.signIn = async (req, res) => {
   }
 };
 
-// Contreoller for the logout user
+/**
+ * @api {get} /api/user/login  Logout user 
+ * @apiName signIn
+ * @apiGroup Autantification
+ * @apiDescription methode API for logout user (delete the cookies)
+ * @apiSampleRequest http://127.0.0.1:5000/api/user/login
+ */
 module.exports.logout = (req, res) => {
+  console.log('❌ user logout')
   res.cookie("jwt", "", { maxAge: 1 });
-  res.redirect("/");
+  res.send('user logout')
 };

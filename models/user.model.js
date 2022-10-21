@@ -10,7 +10,6 @@ const userSchema = new mongoose.Schema(
       minLength: 3,
       maxLength: 55,
       unique: true,
-      trim: true,
     },
     email: {
       type: String,
@@ -26,18 +25,25 @@ const userSchema = new mongoose.Schema(
       max: 1024,
       minlength: 6,
     },
+    role: {
+      type: String,
+    },
+    status: {
+      type: Boolean,
+    },
   },
   {
     timestamps: true,
   }
 );
 
-userSchema.pre("save", async function (next) {
+userSchema.pre("save", async(next) =>{
   const salt = await bcrypt.genSalt();
   this.password = await bcrypt.hash(this.password, salt);
   next();
 });
 
+//eslint-disable-next-line
 userSchema.statics.login = async function (email, password) {
   const user = await this.findOne({ email });
   if (user) {

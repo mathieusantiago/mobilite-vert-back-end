@@ -1,0 +1,1360 @@
+{
+	"info": {
+		"_postman_id": "5470190e-b4a0-40b9-a697-29be521ebe50",
+		"name": "afpa mobilite vert",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Articles",
+			"item": [
+				{
+					"name": "create article",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"profil_name\": \"actu\",\n    \"catégories\":\"tout l'actualité\",\n    \"article_title\": \"test article 10\",\n    \"chapo\": \"entête de mon article 10\",\n    \"content_article\": \"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\",\n    \"status\": \"Draft\",\n    \"editing_id\": \"62aadd63ebc163f0d6e9c69e\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/article",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"article"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all article",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/article",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"article"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all article by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/article/62ab4237d0df8e0687fe7ba1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"article",
+								"62ab4237d0df8e0687fe7ba1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "count article",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/article/publishCount",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"article",
+								"publishCount"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update article by id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"profil_name\": \"actu\",\n    \"catégories\":\"tout l'actualité\",\n    \"article_title\": \"test article 6\",\n    \"chapo\": \"entête de mon article 6\",\n    \"content_article\": \"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\",\n    \"status\": \"Draft\",\n    \"editing_id\": \"62aadd63ebc163f0d6e9c69e\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/article/62ab4393656b09cc6804b1ae",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"article",
+								"62ab4393656b09cc6804b1ae"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete article by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/article/62ab4393656b09cc6804b1ae",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"article",
+								"62ab4393656b09cc6804b1ae"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"pseudo\": \"mathieu\",\n    \"email\": \"mathieu@gmail.com\",\n    \"password\" : \"mathieu\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/user/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"mathieu@gmail.com\",\n    \"password\": \"mathieu\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/user/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get user by id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDIsIm5hbWUiOiJKZWFuIGJvbiIsImVtYWlsIjoiamVhbmJvbkBnbWFpbC5jb20iLCJhZG1pbiI6dHJ1ZSwiaWF0IjoxNjU1MTg5MTM2LCJleHAiOjE2NTUxOTA5MzZ9.VSnuGJyvETgS-qt2TXszF8nemtK0KAVnc1Rk1q4ZM1s",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/user/62a8740f13049c6a3e881f3f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"user",
+								"62a8740f13049c6a3e881f3f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get checking token",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/jwtid",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"jwtid"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/user/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"user",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update user",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"pseudo\": \"nicola34\",\n     \"email\": \"nicola34@gmail.com\"\n} ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/user/62a9e3de2c36b017196f0627",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"user",
+								"62a9e3de2c36b017196f0627"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete user",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/user/630649b1443448154d3d5efc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"user",
+								"630649b1443448154d3d5efc"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "categorie",
+			"item": [
+				{
+					"name": "create categorie",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"categorie_name\":\"Nouvelles énergies\",\n    \"categorie_type\":[],\n    \"creating_id\":\"62aadd63ebc163f0d6e9c69e\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/categorie",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"categorie"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all categorie",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/categorie",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"categorie"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all categorie by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3001/api/categorie/62ac470a324693ddf28c8cda",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"categorie",
+								"62ac470a324693ddf28c8cda"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "count categorie",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/categorie/isVisibleCount",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"categorie",
+								"isVisibleCount"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update categorie by id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"categorie_name\":\"Nos essais\",\n    \"categorie_type\":[],\n    \"creating_id\":\"62aadd63ebc163f0d6e9c69e\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/categorie/62ac477a324693ddf28c8cdc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"categorie",
+								"62ac477a324693ddf28c8cdc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete categorie",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/categorie/62b06baefd1964dd77595cbc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"categorie",
+								"62b06baefd1964dd77595cbc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create sous categorie by id",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\n        {\n          \"name_type\":\"Les avantages fiscaux\",\n          \"status\":\"true\"\n    \n        }\n \n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3001/api/subcategorie/62ac65323046c18d8dc26506",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3001",
+							"path": [
+								"api",
+								"subcategorie",
+								"62ac65323046c18d8dc26506"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete sous catégorie",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/subcategorie/62b05d723419bc963e2f1076/62b05df53419bc963e2f108f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"subcategorie",
+								"62b05d723419bc963e2f1076",
+								"62b05df53419bc963e2f108f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update sub categorie",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name_type\":\"test 3\",\n    \"description\": \"test 3\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/subcategorie/sub/62b1bae4d2dbce6473c6c02c/62b1bafed2dbce6473c6c038",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"subcategorie",
+								"sub",
+								"62b1bae4d2dbce6473c6c02c",
+								"62b1bafed2dbce6473c6c038"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "gallery",
+			"item": [
+				{
+					"name": "add picture gallery",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/gallery",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"gallery"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all picture",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/gallery/count",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"gallery",
+								"count"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "count gallery",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/gallery/count",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"gallery",
+								"count"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete picture",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/gallery/62bce0f52db640d7e2fd36b9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"gallery",
+								"62bce0f52db640d7e2fd36b9"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "fieldEnergy",
+			"item": [
+				{
+					"name": "post fieldEnergy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"filed_name\": \"toto\",\n    \"content_field\": \"test\",\n    \"chapo_field\" : \"tets\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/fieldEnergy",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"fieldEnergy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get fieldEnergy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/fieldEnergy",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"fieldEnergy"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "count fieldEnergy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/fieldEnergy/count",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"fieldEnergy",
+								"count"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get filedEnergyById",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/fieldEnergy/631ef6f75f962fc20444663e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"fieldEnergy",
+								"631ef6f75f962fc20444663e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update fieldEnergy",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"filed_name\": \"test2\",\n    \"content_field\": \"test2\",\n    \"chapo_field\" : \"test2\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/fieldEnergy/631ef6f75f962fc20444663e",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"fieldEnergy",
+								"631ef6f75f962fc20444663e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete fieldEnergy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/fieldEnergy/631ef56771b2d0c67fd177eb",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"fieldEnergy",
+								"631ef56771b2d0c67fd177eb"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "fieldBrand",
+			"item": [
+				{
+					"name": "post fieldBrand",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"filed_name\": \"toto\",\n    \"content_field\": \"test\",\n    \"chapo_field\" : \"tets\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/fieldBrand",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"fieldBrand"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get fieldBrand",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/fieldBrand",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"fieldBrand"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "count fieldBrand",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/fieldBrand/count",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"fieldBrand",
+								"count"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get fieldBrand by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/fieldBrand/632180598b98ff1591d9ea84",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"fieldBrand",
+								"632180598b98ff1591d9ea84"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update fieldBrand",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"filed_name\": \"111\",\n    \"content_field\": \"111\",\n    \"chapo_field\" : \"1111\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/fieldBrand/63217fa38b98ff1591d9ea7a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"fieldBrand",
+								"63217fa38b98ff1591d9ea7a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete fieldBrand Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/fieldBrand/63217fa38b98ff1591d9ea7a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"fieldBrand",
+								"63217fa38b98ff1591d9ea7a"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "fieldModel",
+			"item": [
+				{
+					"name": "post fieldModel",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"filed_name\": \"2222\",\n    \"content_field\": \"22222\",\n    \"chapo_field\" : \"222\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/fieldModel",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"fieldModel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get fieldModel",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/fieldModel",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"fieldModel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get fieldModel by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/fieldModel/63219721fd2edcda69b76760",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"fieldModel",
+								"63219721fd2edcda69b76760"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "count fieldModel",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/fieldModel/count",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"fieldModel",
+								"count"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update fieldModel",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"filed_name\": \"777\",\n    \"content_field\": \"777\",\n    \"chapo_field\" : \"7777\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/fieldModel/63219721fd2edcda69b76760",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"fieldModel",
+								"63219721fd2edcda69b76760"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete fieldModel",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"filed_name\": \"777\",\n    \"content_field\": \"777\",\n    \"chapo_field\" : \"7777\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/fieldModel/63219721fd2edcda69b76760",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"fieldModel",
+								"63219721fd2edcda69b76760"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "tags",
+			"item": [
+				{
+					"name": "get tags",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/tags",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"tags"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "count tags",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/tags/count",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"tags",
+								"count"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get tags by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/tags/6321ce2318be3dc4f1391f8f",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"tags",
+								"6321ce2318be3dc4f1391f8f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post tags",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"tags_name\":\"qqsd\",\n    \"link_field\":\"qsd\",\n    \"status_tags\": \"qsd\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/tags",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"tags"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update tags",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"tags_name\":\"111\",\n    \"link_field\":\"1111\",\n    \"status_tags\": \"11111\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/tags/6321cfb5547003f16f9d1890",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"tags",
+								"6321cfb5547003f16f9d1890"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete tags",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/tags/6321d043547003f16f9d1899",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"tags",
+								"6321d043547003f16f9d1899"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Role",
+			"item": [
+				{
+					"name": "get role",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/role",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"role"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Count role",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/api/role/count",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"role",
+								"count"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

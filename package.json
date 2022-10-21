@@ -4,25 +4,52 @@
   "description": "Projet étude afpa",
   "main": "index.js",
   "scripts": {
-    "docs": "apidoc -i ./ -o doc/",
-    "start": "nodemon --watch ."
+    "start": "node index.js",
+    "test": "npm run test:mocha && npm run test:eslint",
+    "test:mocha": "mocha --timeout 10000 --reporter=spec --recursive ./test/",
+    "test:eslint": "eslint .",
+    "docs": "apidoc -i ./ -o ../apidoc/docs"
   },
   "apidoc": {
     "title": "Custom apiDoc browser title",
-    "url" : "https://api.github.com/v1"
+    "url": "https://api.github.com/v1",
+    "header": {
+      "title": "Introduction",
+      "filename": "header.md"
+    }
   },
   "author": "Mathieu Santiago",
   "license": "ISC",
   "dependencies": {
     "apidoc": "^0.52.0",
     "bcrypt": "^5.0.1",
+    "chai": "^4.3.6",
+    "chai-http": "^4.3.0",
     "cookie-parser": "^1.4.6",
+    "cookie-session": "^2.0.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
+    "express-session": "^1.17.3",
+    "googleapis": "^108.0.0",
     "jsonwebtoken": "^8.5.1",
+    "memorystore": "^1.6.7",
+    "mocha": "^10.0.0",
     "mongoose": "^6.3.8",
     "nodemon": "^2.0.16",
+    "npm": "^8.19.2",
+    "nyc": "^15.1.0",
+    "request": "^2.88.2",
+    "supertest": "^6.3.0",
     "validator": "^13.7.0"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.3.3",
+    "@types/cookie-session": "^2.0.44",
+    "@types/express-session": "^1.17.5",
+    "@types/supertest": "^2.0.12",
+    "eslint": "^8.24.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-react": "^7.31.8"
   }
 }

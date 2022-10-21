@@ -4,19 +4,19 @@ const articleSchema = new mongoose.Schema(
   {
     profil_name: {
       type: String,
-      required: true,
+      // required: true,
     },
     categories: {
       type: String,
-      required: true,
+      // required: true,
     },
     article_title: {
       type: String,
-      required: true,
+      // required: true,
     },
     mainPicture: {
       type: String,
-      required: true,
+      // required: true,
     },
     galleryPicture: {
       type: Array,
@@ -30,11 +30,9 @@ const articleSchema = new mongoose.Schema(
     content_subarticle: {
       type: String,
     },
-    tags: {
-      type: String,
-    },
+    tags: [String],
     author: {
-      type: String,
+      type: [String],
     },
     presCategorie: {
       type: String,
@@ -65,11 +63,11 @@ const articleSchema = new mongoose.Schema(
     },
     status: {
       type: String,
-      required: true,
+      // required: true,
     },
     editing_id: {
       type: String,
-      required: true,
+      // required: true,
     },
     secondaryPicture: {
       type: String,
