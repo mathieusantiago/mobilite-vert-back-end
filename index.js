@@ -40,7 +40,7 @@ app.use(session({
   secret: 'secret',
   crossDomain: true,
   cookie: {
-      path: '/',
+      path: '/dashboard',
       domain: '.onrender.com',
       maxAge: 1000 * 60 * 24 // 24 hours
   }
