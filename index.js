@@ -36,7 +36,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(session({
-  store: new RedisStore(),
   secret: 'secret',
   saveUninitialized: true,
   resave: false,
