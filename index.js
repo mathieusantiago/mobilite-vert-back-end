@@ -38,6 +38,7 @@ app.use(cookieParser());
 
 app.use(session({
   secret: 'secret',
+  crossDomain: true,
   cookie: {
       path: '/',
       domain: '.render.com',
