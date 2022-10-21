@@ -5,7 +5,7 @@ require("dotenv").config();
 require("./config/db");
 const cors = require("cors");
 const app = express();
-const cookieParser = require("cookie-parser");
+// const cookieParser = require("cookie-parser");
 const { checkUser, requireAuth } = require("./middleware/auth.middleware");
 //import routes
 const userRoutes = require("./routes/user.routes");
@@ -50,7 +50,7 @@ app.use((req, res, next) =>{
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cookieParser());
+// app.use(cookieParser());
 
 //Route jwt
 app.get("*", checkUser);
