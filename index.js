@@ -1,5 +1,6 @@
 //import dependencies
 const express = require("express");
+const session = require("cookie-session");
 require("dotenv").config();
 require("./config/db");
 const cors = require("cors");
@@ -42,7 +43,12 @@ app.use(session({
       maxAge: 1000 * 60 * 24 // 24 hours
   }
 }));
-
+app.use((req,res,next)=>{
+  if(!req.session){
+      return next(new Error('Oh no')) //handle error
+  }
+  next() //otherwise continue
+});
 //Route jwt
 app.get("*", checkUser);
 app.get("/jwtid", requireAuth, (req, res) => {
