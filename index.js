@@ -1,12 +1,10 @@
 //import dependencies
 const express = require("express");
-const session = require('express-session');
-const MemoryStore = require('memorystore')(session)
 require("dotenv").config();
 require("./config/db");
 const cors = require("cors");
 const app = express();
-// const cookieParser = require("cookie-parser");
+const cookieParser = require("cookie-parser");
 const { checkUser, requireAuth } = require("./middleware/auth.middleware");
 //import routes
 const userRoutes = require("./routes/user.routes");
@@ -31,32 +29,19 @@ const corsOptions = {
   preflightContinue: false,
 };
 
-//create session express 
+//Use dependencies
+app.use(cors(corsOptions));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 app.use(session({
-  store: new MemoryStore({
-    checkPeriod: 86400000 // prune expired entries every 24h
-  }),
-  resave: false,
-  secret: 'keyboard cat',
+  secret: 'yoursecret',
   cookie: {
       path: '/',
       domain: 'onrender.com',
       maxAge: 1000 * 60 * 24 // 24 hours
   }
 }));
-
-app.use((req, res, next) =>{
-  res.header('Access-Control-Allow-Credentials', true);
-  res.header('Access-Control-Allow-Origin', req.headers.origin);
-  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-  res.header('Access-Control-Allow-Headers', 'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept');
-  next();
-});
-//Use dependencies
-app.use(cors(corsOptions));
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-// app.use(cookieParser());
 
 //Route jwt
 app.get("*", checkUser);
