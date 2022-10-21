@@ -41,7 +41,7 @@ app.use(session({
   crossDomain: true,
   cookie: {
       path: '/',
-      domain: '.render.com',
+      domain: '.onrender.com',
       maxAge: 1000 * 60 * 24 // 24 hours
   }
 }));
