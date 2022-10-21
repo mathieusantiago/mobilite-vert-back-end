@@ -35,11 +35,12 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+
 app.use(session({
   secret: 'secret',
   cookie: {
       path: '/',
-      domain: '.onrender.com',
+      domain: '.render.com',
       maxAge: 1000 * 60 * 24 // 24 hours
   }
 }));
