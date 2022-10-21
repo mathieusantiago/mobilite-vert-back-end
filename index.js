@@ -36,7 +36,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(session({
-  secret: 'yoursecret',
+  store: new RedisStore(),
+  secret: 'secret',
+  saveUninitialized: true,
+  resave: false,
   cookie: {
       path: '/',
       domain: 'onrender.com',
