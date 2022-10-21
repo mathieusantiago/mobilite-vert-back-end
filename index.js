@@ -1,5 +1,6 @@
 //import dependencies
 const express = require("express");
+const session = require('express-session');
 require("dotenv").config();
 require("./config/db");
 const cors = require("cors");
@@ -29,6 +30,22 @@ const corsOptions = {
   preflightContinue: false,
 };
 
+//create session express 
+app.use(session({
+  secret: 'yoursecret',
+  cookie: {
+      path: '/',
+      domain: 'onrender.com',
+      maxAge: 1000 * 60 * 24 // 24 hours
+  }
+}));
+app.use((req, res, next) =>{
+  res.header('Access-Control-Allow-Credentials', true);
+  res.header('Access-Control-Allow-Origin', req.headers.origin);
+  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.header('Access-Control-Allow-Headers', 'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept');
+  next();
+});
 //Use dependencies
 app.use(cors(corsOptions));
 app.use(express.json());
