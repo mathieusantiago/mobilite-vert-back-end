@@ -13,6 +13,29 @@ const jwt = new google.auth.JWT({
   scopes,
 });
 
+const getRowsMetric = async (metric,dimensions, startDate, endDate) => {
+  await setTimeout[Object.getOwnPropertySymbols(setTimeout)[0]](
+    Math.trunc(1000 * Math.random())
+  );
+
+  const result = await analytics.data.ga.get({
+    auth: jwt,
+    ids: `ga:${viewId}`,
+    "start-date": startDate,
+    "end-date": endDate,
+    metrics: metric,
+    dimensions: `ga:${dimensions}`,
+  });
+  
+  const res = {};
+  res[metric] = {
+    value: result.data.rows,
+    start: startDate,
+    end: endDate,
+  };
+  return res;
+};
+
 
 const getMetric = async (metric, startDate, endDate) => {
   await setTimeout[Object.getOwnPropertySymbols(setTimeout)[0]](
@@ -58,4 +81,21 @@ function getData(
 
   return results;
 }
-module.exports = { getData };
+
+function getRowsData(
+  metrics = ["ga:users"],
+  dimensions =  ["ga:pagePath"],
+  startDate = "30daysAgo",
+  endDate = "today"
+) {
+  // ensure all metrics have ga:
+  const results = [];
+  for (let i = 0; i < metrics.length; i += 1) {
+    const metric = parseMetric(metrics[i]);
+    results.push(getRowsMetric(metric,dimensions, startDate, endDate));
+  }
+
+  return results;
+}
+module.exports = { getData, getRowsData };
+
