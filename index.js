@@ -38,10 +38,10 @@ app.use(cookieParser());
 
 app.use(session({
   secret: 'secret',
-  crossDomain: true,
+  // crossDomain: true,
   cookie: {
-      path: '/dashboard',
-      domain: process.env.DOMAINCOOKIES,
+      // path: '/dashboard',
+      // domain: process.env.DOMAINCOOKIES,
       maxAge: 1000 * 60 * 24 // 24 hours
   }
 }));
@@ -53,13 +53,13 @@ app.use((req,res,next)=>{
   next() //otherwise continue
 });
 
-app.use((req, res, next)=> {
-  res.header('Access-Control-Allow-Credentials', true);
-  res.header('Access-Control-Allow-Origin', req.headers.origin);
-  res.header('Access-Control-Allow-Methods', "GET,HEAD,PUT,PATCH,POST,DELETE");
-  res.header('Access-Control-Allow-Headers', 'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept');
-  next();
-});
+// app.use((req, res, next)=> {
+//   res.header('Access-Control-Allow-Credentials', true);
+//   res.header('Access-Control-Allow-Origin', req.headers.origin);
+//   res.header('Access-Control-Allow-Methods', "GET,HEAD,PUT,PATCH,POST,DELETE");
+//   res.header('Access-Control-Allow-Headers', 'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept');
+//   next();
+// });
 
 //Route jwt
 app.get("*", checkUser);

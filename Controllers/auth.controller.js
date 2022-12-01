@@ -64,8 +64,8 @@ module.exports.signIn = async (req, res) => {
   try {
     const user = await UserModel.login(email, password);
     const token = createToken(user._id);
-    //res.cookie("jwt", token, { http0nly: false, maxAge : maxAge});
-    res.cookie("jwt", token, {domain: process.env.DOMAINCOOKIES, sameSite: "none", http0nly: false, maxAge : maxAge, secure: true});
+    res.cookie("jwt", token, { http0nly: false, maxAge : maxAge});
+    // res.cookie("jwt", token, {domain: process.env.DOMAINCOOKIES, sameSite: "none", http0nly: false, maxAge : maxAge, secure: true});
     res.status(200).json({ user: user._id });
   } catch (err) {
     const errors = signInErrors(err);
@@ -82,7 +82,7 @@ module.exports.signIn = async (req, res) => {
  */
 module.exports.logout = (req, res) => {
   console.log('❌ user logout')
-  //res.cookie("jwt", "", { maxAge: 1 });
-  res.cookie("jwt", token, {domain: process.env.DOMAINCOOKIES, sameSite: "none", http0nly: false, maxAge : 1, secure: true});
+  res.cookie("jwt", "", { maxAge: 1 });
+  // res.cookie("jwt", token, {domain: process.env.DOMAINCOOKIES, sameSite: "none", http0nly: false, maxAge : 1, secure: true});
   res.send('user logout')
 };

@@ -2,7 +2,7 @@
 const chai = require("chai");
 const expect = chai.expect; 
 const request = require('request')
-
+const url = "http://localhost:5000"
 describe("AuthController", () => {
     describe('Api test', () => {
         describe("/POST /api/user/login", () => {
@@ -13,7 +13,7 @@ describe("AuthController", () => {
                 }
                 request
                     .post({
-                        url:'http://localhost:5000/api/user/login',
+                        url:`${url}/api/user/login`,
                         form: data
                     }, (err,response,body)=>{
                         expect(response.statusCode).to.equal(200)
@@ -29,7 +29,7 @@ describe("AuthController", () => {
                 }
                 request
                     .post({
-                        url:'http://localhost:5000/api/user/login',
+                        url:`${url}/api/user/login`,
                         form: data
                     }, (err,response,body)=>{
                         expect(response.statusCode).to.equal(400)
@@ -45,7 +45,7 @@ describe("AuthController", () => {
                 }
                 request
                     .post({
-                        url:'http://localhost:5000/api/user/login',
+                        url:`${url}/api/user/login`,
                         form: data
                     }, (err,response,body)=>{
                         expect(response.statusCode).to.equal(400)
@@ -61,7 +61,7 @@ describe("AuthController", () => {
                 }
                 request
                     .post({
-                        url:'http://localhost:5000/api/user/login',
+                        url:`${url}/api/user/login`,
                         form: data
                     }, (err,response,body)=>{
                         expect(response.statusCode).to.equal(400)
@@ -84,7 +84,7 @@ describe("AuthController", () => {
                 }
                 request
                     .post({
-                        url:'http://localhost:5000/api/user/register',
+                        url:`${url}/api/user/register`,
                         form: data
                     }, (err,response,body)=>{
                         expect(response.statusCode).to.equal(400)
@@ -102,7 +102,7 @@ describe("AuthController", () => {
                 }
                 request
                     .post({
-                        url:'http://localhost:5000/api/user/register',
+                        url:`${url}/api/user/register`,
                         form: data
                     }, (err,response,body)=>{
                         expect(response.statusCode).to.equal(400)
@@ -120,7 +120,7 @@ describe("AuthController", () => {
                 }
                 request
                     .post({
-                        url:'http://localhost:5000/api/user/register',
+                        url:`${url}/api/user/register`,
                         form: data
                     }, (err,response,body)=>{
                         expect(response.statusCode).to.equal(400)
