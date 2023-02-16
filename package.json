@@ -11,8 +11,8 @@
     "docs": "apidoc -i ./ -o ../apidoc/docs"
   },
   "apidoc": {
-    "title": "Custom apiDoc browser title",
-    "url": "https://api.github.com/v1",
+    "title": "mobilité verte docs",
+    "url": "https://github.com/mathieusantiago/mobilite-vert-back-end",
     "header": {
       "title": "Introduction",
       "filename": "header.md"
