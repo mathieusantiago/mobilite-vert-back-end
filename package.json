@@ -4,15 +4,15 @@
   "description": "Projet étude afpa",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "nodemon --watch ./",
     "test": "npm run test:mocha && npm run test:eslint",
     "test:mocha": "mocha --timeout 10000 --reporter=spec --recursive ./test/",
     "test:eslint": "eslint .",
     "docs": "apidoc -i ./ -o ../apidoc/docs"
   },
   "apidoc": {
-    "title": "Custom apiDoc browser title",
-    "url": "https://api.github.com/v1",
+    "title": "mobilité verte docs",
+    "url": "https://github.com/mathieusantiago/mobilite-vert-back-end",
     "header": {
       "title": "Introduction",
       "filename": "header.md"
