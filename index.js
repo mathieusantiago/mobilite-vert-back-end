@@ -36,31 +36,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-app.use(session({
-  secret: 'secret',
-  crossDomain: true,
-  cookie: {
-      path: '/dashboard',
-      domain: process.env.DOMAINCOOKIES,
-      maxAge: 1000 * 60 * 24 // 24 hours
-  }
-}));
-
-app.use((req,res,next)=>{
-  if(!req.session){
-      return next(new Error('Oh no')) //handle error
-  }
-  next() //otherwise continue
-});
-
-app.use((req, res, next)=> {
-  res.header('Access-Control-Allow-Credentials', true);
-  res.header('Access-Control-Allow-Origin', req.headers.origin);
-  res.header('Access-Control-Allow-Methods', "GET,HEAD,PUT,PATCH,POST,DELETE");
-  res.header('Access-Control-Allow-Headers', 'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept');
-  next();
-});
-
 //Route jwt
 app.get("*", checkUser);
 app.get("/jwtid", requireAuth, (req, res) => {
